@@ -24,12 +24,18 @@ const $$ = document.querySelectorAll.bind(document)
 	const Profile = $('.profile')
 	const profileInterFace = $('#profileInterface')
 	const homeInterFace = $('#HomeInterFace')
+	const STORAGE_KEY = 'TruongPro'
 	    
 const app = {
 	currentIndex:1,
 	isPlay:false,
-	isRandom:true,
+	isRandom:false,
 	isRepeat:false,
+	config: JSON.parse(localStorage.getItem(STORAGE_KEY)) || {},
+	setConfig: function(key,value) {
+		this.config[key] = value
+		localStorage.setItem(STORAGE_KEY,JSON.stringify(this.config))
+	},
 	songs: [
 		{
 			name:'Thêm Bao Nhiêu Lâu',
@@ -140,27 +146,20 @@ const app = {
 		})
 		cdthumbAnimate.pause()	
 		// xử lý random
-		random.onclick = function(){
-			if(_this.isRandom){
-				random.classList.add('active')
-			}else{
-				random.classList.remove('active')
-			}
+		random.onclick = function(e){
 			_this.isRandom = !_this.isRandom
-			
-		}
+			random.classList.toggle('active', _this.isRandom)
+			_this.setConfig('isRandom', _this.isRandom)
+			}	
 		//xử lý repeat
-		repeat.onclick = function(){
-			if(!_this.isRepeat){
-				repeat.classList.add('active')
-			}else {
-				repeat.classList.remove('active')
-			}
+		repeat.onclick = function(e){
 			_this.isRepeat= !_this.isRepeat
+			repeat.classList.toggle('active', _this.isRepeat)
+			_this.setConfig('isRepeat', _this.isRepeat)
 		}
 		// khi next song
 		next.onclick = function(){
-			if (_this.isRandom){
+			if (!_this.isRandom){
 				_this.nextsong()
 			}else{
 				_this.playRandomSong()
@@ -172,7 +171,7 @@ const app = {
 		}
 		//khi prev song
 		prev.onclick = function(){
-			if (_this.isRandom){
+			if (!_this.isRandom){
 				_this.prevsong()
 			}else{
 				_this.playRandomSong()
@@ -339,24 +338,34 @@ const app = {
 			})
 		},300)
 	},
+	//xử lý khi load lại trang nút random và repeat k bị thay đổi
+	LoadConfig: function(){
+		this.isRandom = this.config.isRandom
+		this.isRepeat = this.config.isRepeat
+
+	},
 	LoadSongInInterface:function(){
 		heading.textContent = this.currentSong.name
 		cdthumb.style.backgroundImage = `url('${this.currentSong.image}')`
 		audio.src = this.currentSong.path
-		headingSon.textContent = this.currentSong.singer
-		
-		
+		headingSon.textContent = this.currentSong.singer		
 	},
 
 	start: function(){
 		// định nghĩa các thuộc tính
 		this.defineProperties()
+		// xử lý sự kiện
 		this.HandleEvent()
+		//load thông tin bài hát khi chạy
 		this.LoadSongInInterface()
+		// render lại
 		this.reder()
+		// hiển thị giao diện âm nhạc và profile
 		this.HOME()
+		//gán cấu hình
+		this.LoadConfig()
+		random.classList.toggle('active', this.isRandom)
+		repeat.classList.toggle('active', this.isRepeat)
 	},
-
-	
 }
 app.start()
