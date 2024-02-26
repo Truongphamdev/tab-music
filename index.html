@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Play List Đạt G</title>
+	<link rel="stylesheet" href="./fontawesome-free-6.5.1-web/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="user.css">
+	 <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="HomeInterFace">
+
+		<div class="player" >
+			<!-- Dashboard -->
+			<div class="dashboard">
+				<!-- header -->
+				<header>
+	
+					<h4>Now playing:</h4>
+					<h2></h2>
+					<p></p>
+				</header>
+				<!-- CD -->
+				<div class="cd">
+					<div class="cd-thumb" style="background-image: url('download\ \(1\).jpg');">
+	
+					</div>
+	
+				</div>
+				<!-- Control -->
+				<input type="range" id="progress" class="progress" value="0" step="1" min="0" max="100">
+				<audio id="audio" src=""></audio>
+				<div class="block-time">
+					<span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+				</div>
+				<button class="button-control">
+					<div class="control">
+						<div class="btn btn-repeat">
+							<i class="fas fa-redo"></i>
+						</div>
+						<div class="btn btn-prew">
+							<i class="fas fa-step-backward"></i>
+						</div>
+						<div class="btn btn-toggle-play">
+							<i class="fas fa-pause icon-pause"></i>
+							<i class="fas fa-play icon-play"></i>
+						</div>
+						<div class="btn btn-next">
+							<i class="fas fa-step-forward"></i>
+						</div>
+						<div class="btn btn-random">
+							<i class="fas fa-random"></i>
+						</div>
+		
+					</div>
+				</button>
+				<div class="block-audio">
+					<div id="volumeBtn">
+						<i id="icon-volume" class="fas fa-volume-up"></i>
+					</div>
+					<input type="range" id="volumeRange" min="0" max="1" step="0.01" value="0.5">
+				</div> 
+			</div>
+			<!-- Playlist -->
+			<div class="playlist" >
+	
+			</div>
+		</div>
+	</div>
+	<div id="profileInterface" style="display: none">
+		<div class="user">
+			<div>
+				<div class="Background">
+					<figure >
+						<img class="avarta" src="./img/Trường.jpg" alt="">
+						
+					</figure>
+				</div>
+				<div class="content">
+					<p class="content-title">Hello Everyone, I'm</p>
+					<h2 class="content-name">NGUYỄN NHẬT TRƯỜNG</h2>
+					<p class="content__sub-title">I'm a 
+						<span>
+	
+							Student studying at DANAVTC
+						</span>
+					</p>
+					<span class="content-des">I was born in 2005 and I come from Pleiku, Gia Lai. Currently,
+						 I am studying and living in Da Nang.
+						 I hope to soon become a Backend programmer with all my efforts</span>
+					<p class="contact">Contact me:</p>
+					<div class="socials">
+						<div class="social">
+							<a href="https://www.instagram.com/truong.02.03">						
+									<i class="fa-brands fa-instagram"></i>
+								</a>
+						</div>
+						<div class="social">
+							<a href="https://github.com/Truongphamdev">
+									<i class="fa-brands fa-github"></i>
+							</a>
+						</div>
+						<div class="social">
+							<a href="https://www.tiktok.com/@truonggnguyenn1?_t=8gB25a01Lzm&_r=1">
+									<i class="fa-brands fa-tiktok"></i>	
+							</a>
+						</div>
+						<div class="social btn-social">
+							<a href="https://www.facebook.com/me.truong.351/about">
+								<i class="fa-brands fa-facebook"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="nav-bottom">
+		<div class="Home-child nav-bottom-btn">
+			<i class="fa-solid fa-music"></i>
+		</div>
+		<div class="seperate"></div>
+		<div class="profile nav-bottom-btn">
+				<i class="fa-solid fa-user"></i>
+		</div>
+	</div>
+</body>
+</html>
+<script src="main.js">
+	/**
+	 * 1 render songs
+	 * 2 scroll top
+	 * 3 play/pause/seek
+	 * 4 CD rotate quay đĩa cd
+	 * 5 next/prev
+	 * 6 random
+	 * 7 next / repear when ended
+	 * 8 active song
+	 * 9 scroll active song into view
+	 * 10 paly song when click
+	 **/
+
+</script>

@@ -1,0 +1,345 @@
+:root {
+	--primary-color:#ec1f55;
+	--text-color : #333
+}
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: inherit; 
+}
+body {
+	background-color: #9adce5;
+}
+html {
+	box-sizing: border-box; /*kích thước bao gồm padding và border */
+	font-family: "Poppins" sans-serif;
+}
+.player {
+	position: relative;
+	max-width: 480px;
+	margin: 0 auto;
+}
+.player .icon-pause {
+	display: none;
+}
+.player.playing .icon-pause {
+	display: inline-block;
+}
+.player.playing .icon-play {
+	display: none;
+}
+.dashboard {
+	padding: 16px 16px 14px;
+	background-color: rgb(175, 161, 0);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	max-width: 480px;
+	border-bottom: 2px solid #93930e;
+	z-index: 999;
+}
+/* Header */
+header {
+	text-align: center;
+	margin-bottom: 10px;
+}
+header h2:hover {
+	color: var(--primary-color);
+}
+header p {
+	font-size: 18px;
+	font-weight: 900;
+}
+header h4 {
+	color: var(--text-color);
+	font-size: 20px;
+}
+/* CD */
+.cd {
+	display: flex;
+	margin: auto;
+	width: 200px;
+}
+.cd-thumb {
+	width: 100%;
+	padding-top: 100%;
+	border-radius: 50%;
+	border-color: #333;
+	background-size: cover;
+	margin: auto;
+}
+/* Control */
+.button-control {
+	background-color: #69e18f ;
+}
+.control {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 18px 0 8px 0;
+	
+}
+.control .btn {
+	color: #5b051f;
+	padding: 18px;
+	font-size: 20px;
+	cursor: pointer;
+}
+.control .btn.active {
+	color: var(--primary-color);
+}
+.control .btn-toggle-play {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	font-size: 24px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f1326b;
+}
+
+.btn {
+	width: 56px;
+	height: 56px;
+}
+.btn:hover {
+	color: #fff;
+	background-color: var(--primary-color);
+	border-radius: 50%;
+}
+.btn.active:hover{
+	color: #fff;
+}
+.button-control {
+	width: 100%;
+	border-radius:20px;
+	margin-top: 14px;
+}
+.option {
+	
+	border-radius: 50%;
+	width: 56px;
+	height: 56px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opcity 0.3s ease;
+}
+.option:hover {
+	background-color: var(--primary-color);
+}
+.song .option:hover > i {
+	color: #fff;
+  }
+.song.active .option:hover > i {
+	color: var(--text-color);
+  }
+
+.song.active .option:hover{
+	background-color: #fff;
+	color: var(--text-color);
+	transition: ease-in 
+}
+ .option{
+	background-color: #fff;
+	color: var(--text-color);
+	
+} 
+
+
+
+.progress {
+	width: 100%;
+	margin-top: 18px;
+	height: 6px;
+	-webkit-appearance: none;
+	background: #d3d3d3;
+	outline: none;
+	-webkit-transition: 0.2s;
+	/* chuyển đổi mượt */
+	transition: opacity 0.2s;
+	
+}
+.progress:hover {
+	
+	cursor: pointer;
+	/*  phóng to 103% khi horve vào*/
+	/* transform: scale(1.02); */
+	/* cao lên 135% */
+	transform: scaleY(1.35);  
+	border-radius: 8px;
+}
+.progress::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 12px;
+	height: 6px;
+	background-color: var(--primary-color);
+	cursor: pointer;
+}
+#volumeRange {
+	flex: 1;
+	cursor: pointer;
+	/* chiếm toàn bộ không gian */
+}
+#icon-volume  {
+	margin-right: 10px ;
+	cursor: pointer;
+}
+
+.block-audio {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+ /* PLAYLIST */
+.playlist {
+	margin-top: 502px;
+	margin-bottom: 48px;
+	padding: 12px;
+  }
+.block-time {
+	margin-top: 12px;
+	font-size: 24px;
+}
+.song {
+
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+	background-color: #69e18f;
+	padding: 8px 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 1);
+	transition: transform 0.3s ease
+	/* đổ bóng */
+}
+.song:hover {
+    transform: translatey(-5px); /* Di chuyển lên trên 5px khi hover */
+}
+
+.song.active {
+	background-color: var(--primary-color);
+	transform:none
+	
+}
+.song.active .author,
+.song.active .title {
+  color: white;
+}
+.song .thumb {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background-size: cover;
+	margin: 0 8px;
+}
+.song .body {
+	flex: 1; /*lấp đầy khoảng trống*/
+	padding: 0 16px;
+}
+.song .title {
+	font-size: 18px;
+	color: var(--text-color);
+}
+.song .author {
+	font-size: 14px;
+	color: #8d1d82;
+}
+.song .option {
+	padding: 16px 8px;
+	color: #2c0808;
+	font-size: 18px;
+  }
+  .nav-bottom {
+    /* Cố định ở dưới cùng của trang */
+    position: fixed;
+    /* Hiển thị các phần tử theo chiều ngang */
+    display: flex;
+    /* Căn giữa các phần tử theo chiều dọc */
+    align-items: center;
+    /* Phân chia không gian ngang cho các phần tử */
+    justify-content: space-around;
+    /* Độ cao của thanh điều hướng */
+    height: 60px;
+    /* Hiển thị ở dưới cùng của trang */
+    bottom: 0;
+	right: 34%;
+    /* Chiều rộng tối đa của thanh điều hướng */
+    width: 100%;
+    /* Giới hạn chiều rộng tối đa */
+    max-width: 480px;
+    /* Layer cao hơn so với các phần tử khác */
+    z-index: 999;
+    /* Màu nền */
+    background-color: #fff;
+    /* Đổ bóng cho thanh điều hướng */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    /* Con trỏ hiển thị khi di chuyển qua các phần tử */
+    cursor: pointer;
+}
+
+.nav-bottom__btn {
+    /* Hiển thị các phần tử theo chiều ngang */
+    display: flex;
+    /* Căn giữa các phần tử theo chiều dọc */
+    align-items: center;
+    /* Phân chia không gian ngang cho các phần tử */
+    justify-content: center;
+    /* Kích thước chữ của các biểu tượng */
+    font-size: 46px;
+    /* Chiều rộng của phần tử */
+    width: 50%;
+    /* Chiều cao của phần tử */
+    height: 100%;
+    /* Thời gian chuyển đổi */
+    transition: all 0.3s ease;
+    /* Vị trí tuyệt đối */
+    position: relative;
+    /* Màu nền */
+    background-color: #fff;
+}
+
+.Home-child:hover,
+.Home-child.active {
+    /* Màu chữ và màu nền khi hover */
+    color: #fff;
+    background-color: var(--primary-color);
+}
+.profile:hover,
+.profile.active {
+	color: #fff;
+	background-color: var(--primary-color);
+}
+.nav-bottom {
+	display: flex;
+	align-items: center;
+    width: 50%;
+
+}
+.Home-child {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 100%;
+	width: 50%;
+	font-size: 26px;
+}
+.profile {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 26px;
+	width: 50%;
+	height: 100%;
+}
+.seperate {
+	height: 60px;
+	width: 2px;
+	background-color: #333;
+}
